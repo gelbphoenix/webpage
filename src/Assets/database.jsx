@@ -18,6 +18,7 @@ import { BsCodeSlash } from 'react-icons/bs';
 import { FaLinux, FaBlog } from 'react-icons/fa';
 import { PiPlaceholderFill } from 'react-icons/pi';
 import { SiGithub, SiMastodon, SiPixelfed, SiForgejo } from 'react-icons/si';
+import { UkraineTrident } from 'Components/Icons';
 
 // JSON Database
 export const db = {
@@ -145,9 +146,10 @@ export const db = {
   ],
   toast: [
     {
-      icon: <PiPlaceholderFill size={20} />,
-      title: '',
-      description: '',
+      icon: <UkraineTrident size={25} />,
+      title: 'Slava Ukraini!',
+      description:
+        'The defence of Europe and the free world hangs on Ukraine. Trump\'s "peace plan" sells Ukraine to Russia.',
     },
   ],
 };

@@ -1,6 +1,6 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
-import svgt from 'vite-plugin-svgr';
+import svgr from 'vite-plugin-svgr';
 import { cloudflare } from '@cloudflare/vite-plugin';
 
 // https://vitejs.dev/config/
@@ -16,5 +16,5 @@ export default defineConfig({
       Styles: '/src/Styles',
     },
   },
-  plugins: [svgt(), react(), cloudflare()],
+  plugins: [svgr({ svgrOptions: { icon: true } }), react(), cloudflare()],
 });
