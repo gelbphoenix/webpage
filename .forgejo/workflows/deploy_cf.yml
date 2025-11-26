@@ -12,9 +12,12 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v4
 
+      - name: Install dependencies
+        run: |
+          npm install --no-fund
+
       - name: Build site
         run: |
-          npm ci
           npm run build
 
       - name: Deploy to Cloudflare
