@@ -14,7 +14,7 @@ jobs:
 
       - name: Build site
         run: |
-          npm install
+          npm ci
           npm run build
 
       - name: Deploy to Cloudflare
