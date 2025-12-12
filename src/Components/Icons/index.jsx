@@ -1,3 +1,4 @@
 import { UkraineTrident } from './UkraineTrident';
+import { EuropeanStars } from './EuropeanStars';
 
-export { UkraineTrident };
+export { UkraineTrident, EuropeanStars };
