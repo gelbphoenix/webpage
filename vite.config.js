@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import svgr from 'vite-plugin-svgr';
+import { viteStaticCopy } from 'vite-plugin-static-copy';
 import { cloudflare } from '@cloudflare/vite-plugin';
 
 // https://vitejs.dev/config/
@@ -33,5 +34,21 @@ export default defineConfig({
       Styles: '/src/Styles',
     },
   },
-  plugins: [svgr({ svgrOptions: { icon: true } }), react(), cloudflare()],
+  plugins: [
+    svgr({
+      svgrOptions: {
+        icon: true,
+      },
+    }),
+    react(),
+    cloudflare(),
+    viteStaticCopy({
+      targets: [
+        {
+          src: ['public/**/*', '!public/picture.webp'],
+          dest: '.',
+        },
+      ],
+    }),
+  ],
 });
