@@ -12,12 +12,6 @@ const Contact = () => {
       <h1 className="text-4xl font-bold text-center text-[#001b5e] dark:text-[#4673e4] pb-2">
         Contact me
       </h1>
-      <p className="text-center py-1 dark:text-stone-300">
-        Provided by{' '}
-        <a href="https://herotofu.com/" className="hover:underline">
-          HeroTofu
-        </a>
-      </p>
       <ContactForm link={env.link} />
     </section>
   );

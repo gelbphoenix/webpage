@@ -1,10 +1,56 @@
+import { useState } from 'react';
 import { Button } from 'flowbite-react';
 import { BiMailSend } from 'react-icons/bi';
 
 const ContactForm = ({ link }) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(null);
+
+  const handleSubmit = async e => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus(null);
+
+    const formData = new FormData(e.target);
+    const data = Object.fromEntries(formData.entries());
+
+    try {
+      const response = await fetch(link, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (response.ok) {
+        setSubmitStatus('success');
+        e.target.reset(); // Formular zurücksetzen
+      } else {
+        setSubmitStatus('error');
+      }
+    } catch (error) {
+      setSubmitStatus('error');
+      console.error('Fehler beim Senden:', error);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <>
-      <form action={link} method="POST" className="dark:text-stone-300">
+      {submitStatus === 'success' && (
+        <div className="flex my-4 p-4 bg-green-100 text-green-700 rounded-lg w-full justify-center items-center font-bold">
+          Thank you! Your message was send successfully.
+        </div>
+      )}
+      {submitStatus === 'error' && (
+        <div className="flex my-4 p-4 bg-red-100 text-red-700 rounded-lg w-full justify-center items-center font-bold">
+          A problem accured while trying to send your message. Please try again.
+        </div>
+      )}
+
+      <form onSubmit={handleSubmit} className="dark:text-stone-300">
         <div className="grid sm:grid-cols-2 gap-4 w-full py-2">
           <div className="flex flex-col">
             <label className="uppercase text-[#001b5e] dark:text-[#4673e4] text-sm font-bold py-2">
@@ -78,8 +124,14 @@ const ContactForm = ({ link }) => {
           required
           className="bg-[#001b5e] dark:bg-[#4673e4] text-gray-300 flex mt-4 w-full p-4 uppercase font-extrabold hover:bg-inherit focus:ring-0 justify-center items-center"
         >
-          <BiMailSend size={25} />
-          <span className="pl-2">Send Message</span>
+          {isSubmitting ? (
+            <span>Sende...</span>
+          ) : (
+            <>
+              <BiMailSend size={25} />
+              <span className="pl-2">Send Message</span>
+            </>
+          )}
         </Button>
         <div
           className="overflow-hidden whitespace-nowrap indent-[-99999px] absolute"
