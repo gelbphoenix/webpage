@@ -127,7 +127,7 @@ const ContactForm = ({ link }) => {
         >
           {isSubmitting ? (
             <span className="flex">
-              Send
+              Sending
               <TypeAnimation
                 sequence={['.', 750, '..', 750, '...', 750]}
                 speed={50}
