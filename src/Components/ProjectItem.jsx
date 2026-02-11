@@ -10,6 +10,7 @@ const ProjectItem = ({ title, link, page, provider }) => {
     `${gitUserName}/${gitUserName}`,
     `${gitUserName}/.profile`,
     `${gitUserName}/dotfiles`,
+    `${gitUserName}/_cargo-index`,
   ];
 
   const providerData =
