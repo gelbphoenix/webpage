@@ -3,28 +3,45 @@ import { AiOutlineInfoCircle } from 'react-icons/ai';
 import { BiSolidShow } from 'react-icons/bi';
 import { db } from 'Assets/database';
 
-const ProjectItem = ({ title, link, page }) => {
-  const ghUserName = db.env.username;
+const ProjectItem = ({ title, link, page, provider }) => {
+  const gitUserName = db.env.username;
 
   const bannedProjects = [
-    `${ghUserName}/${ghUserName}`,
-    `${ghUserName}/dotfiles`,
+    `${gitUserName}/${gitUserName}`,
+    `${gitUserName}/.profile`,
+    `${gitUserName}/dotfiles`,
   ];
 
-  if (bannedProjects.includes(title)) return;
+  const providerData =
+    db.env.git.find(p => p.name === provider) || db.env.git[0];
+
+  const getImageUrl = repo => {
+    return `${providerData.base_url}/${repo}${providerData.image_path}`;
+  };
+
+  const getProfileUrl = username => {
+    return `${providerData.base_url}/${username}${providerData.profile_path}`;
+  };
+
+  if (bannedProjects.includes(title)) return null;
 
   return (
     <>
       <div className="relative flex items-center justify-center h-auto w-full shadow-xl shadow-gray-500 rounded-xl group hover:bg-gradient-to-r from-gray-400 to-[#001b5e] dark:from-gray-600 dark:to-[#4673e4] overflow-hidden object-contain">
         <img
-          src={`https://raw.githubusercontent.com/${title}/main/public/picture.webp`}
+          src={getImageUrl(title)}
           className="rounded-xl group-hover:opacity-10 ease-out duration-100 aspect-square object-cover object-left bg-gray-400 w-full"
           onError={({ currentTarget }) => {
             currentTarget.onError = null;
-            currentTarget.src = `https://avatars.githubusercontent.com/${ghUserName}`;
+            const repoParts = title.split('/');
+            const username = repoParts.length > 0 ? repoParts[0] : gitUserName;
+            currentTarget.src = getProfileUrl(username);
           }}
         />
         <div className="hidden group-hover:block absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] w-[75%]">
+          <p className="text-xs text-white text-center mt-1">
+            {providerData.name}
+          </p>
           <h3 className="mdl:text-1xl text-base font-bold text-white tracking-wider text-center truncate">
             {title}
           </h3>
@@ -52,9 +69,7 @@ const ProjectItem = ({ title, link, page }) => {
                 <BiSolidShow size={20} />
                 <span className="sm:block ml-1 hidden">Demo</span>
               </Button>
-            ) : (
-              ''
-            )}
+            ) : null}
           </div>
         </div>
       </div>

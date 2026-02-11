@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Button } from 'flowbite-react';
 import { BiMailSend } from 'react-icons/bi';
+import { TypeAnimation } from 'react-type-animation';
 
 const ContactForm = ({ link }) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -122,10 +123,19 @@ const ContactForm = ({ link }) => {
         <Button
           type="submit"
           required
-          className="bg-[#001b5e] dark:bg-[#4673e4] text-gray-300 flex mt-4 w-full p-4 uppercase font-extrabold hover:bg-inherit focus:ring-0 justify-center items-center"
+          className="bg-[#001b5e] hover:bg-[#324D5E] dark:bg-[#4673e4] dark:hover:bg-[#8C4B9E] text-gray-300 flex mt-4 w-full p-4 uppercase font-extrabold focus:ring-0 justify-center items-center"
         >
           {isSubmitting ? (
-            <span>Sende...</span>
+            <span className="flex">
+              Sending
+              <TypeAnimation
+                sequence={['.', 750, '..', 750, '...', 750]}
+                speed={50}
+                wrapper="div"
+                cursor={false}
+                repeat={Infinity}
+              />
+            </span>
           ) : (
             <>
               <BiMailSend size={25} />

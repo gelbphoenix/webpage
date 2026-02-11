@@ -24,7 +24,7 @@ const Footer = () => {
             <Button
               as="a"
               href="#home"
-              className="rounded-full shadow-lg text-stone-200 dark:text-black bg-[#001b5e] dark:bg-[#4673e4] shadow-gray-400 dark:shadow-gray-600 m-2 p-1 cursor-pointer hover:scale-110 ease-in duration-200 hover:bg-[#001b7c] dark:hover:bg-[#4674c6] font-extrabold uppercase"
+              className="rounded-full shadow-lg text-stone-200 dark:text-black bg-[#001b5e] dark:bg-[#4673e4] shadow-gray-400 dark:shadow-gray-600 m-2 py-2 px-2.5 cursor-pointer hover:scale-110 ease-in duration-200 hover:bg-[#001b7c] dark:hover:bg-[#4674c6] font-extrabold uppercase"
             >
               <FaChevronUp size={20} />
             </Button>

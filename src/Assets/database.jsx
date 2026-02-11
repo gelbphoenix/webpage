@@ -16,8 +16,13 @@ import {
 } from 'react-icons/bi';
 import { BsCodeSlash } from 'react-icons/bs';
 import { FaLinux, FaBlog } from 'react-icons/fa';
-import { PiPlaceholderFill } from 'react-icons/pi';
-import { SiGithub, SiMastodon, SiPixelfed, SiForgejo } from 'react-icons/si';
+import {
+  SiGithub,
+  SiMastodon,
+  SiPixelfed,
+  SiForgejo,
+  SiCodeberg,
+} from 'react-icons/si';
 import { EuropeanStars } from 'Components/Icons';
 
 // JSON Database
@@ -54,6 +59,22 @@ export const db = {
       base: 'gelbphoenix.de',
       link: 'gelbphoenix.link',
     },
+    git: [
+      {
+        name: 'Codeberg',
+        api_url: 'https://codeberg.org/api/v1',
+        base_url: 'https://codeberg.org',
+        image_path: '/media/branch/main/public/picture.webp',
+        profile_path: '.png',
+      },
+      {
+        name: 'Forgejo',
+        api_url: 'https://git.gelbphoenix.de/api/v1',
+        base_url: 'https://git.gelbphoenix.de',
+        image_path: '/media/branch/main/public/picture.webp',
+        profile_path: '.png',
+      },
+    ],
   },
   profiles: [
     {
@@ -80,6 +101,11 @@ export const db = {
       title: 'git',
       longTitle: 'Forgejo',
       icon: <SiForgejo size={20} />,
+    },
+    {
+      title: 'codeberg',
+      longTitle: 'Codeberg',
+      icon: <SiCodeberg size={20} />,
     },
   ],
   sites: [
