@@ -27,7 +27,8 @@ const Projects = () => {
                 title={project.full_name}
                 link={project.html_url}
                 page={project.homepage}
-                provider={project.provider} // Übergabe des Providers
+                provider={project.provider}
+                avatar_url={project.avatar_url}
               />
             );
           })}

@@ -3,7 +3,7 @@ import { AiOutlineInfoCircle } from 'react-icons/ai';
 import { BiSolidShow } from 'react-icons/bi';
 import { db } from 'Assets/database';
 
-const ProjectItem = ({ title, link, page, provider }) => {
+const ProjectItem = ({ title, link, page, provider, avatar_url }) => {
   const gitUserName = db.env.username;
 
   const bannedProjects = [
@@ -20,6 +20,8 @@ const ProjectItem = ({ title, link, page, provider }) => {
     return `${providerData.base_url}/${repo}${providerData.image_path}`;
   };
 
+  const image = avatar_url ? avatar_url : getImageUrl(title);
+
   const getProfileUrl = username => {
     return `${providerData.base_url}/${username}${providerData.profile_path}`;
   };
@@ -30,7 +32,7 @@ const ProjectItem = ({ title, link, page, provider }) => {
     <>
       <div className="relative flex items-center justify-center h-auto w-full shadow-xl shadow-gray-500 rounded-xl group hover:bg-gradient-to-r from-gray-400 to-[#001b5e] dark:from-gray-600 dark:to-[#4673e4] overflow-hidden object-contain">
         <img
-          src={getImageUrl(title)}
+          src={image}
           className="rounded-xl group-hover:opacity-10 ease-out duration-100 aspect-square object-cover object-left bg-gray-400 w-full"
           onError={({ currentTarget }) => {
             currentTarget.onError = null;

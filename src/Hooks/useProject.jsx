@@ -21,18 +21,9 @@ const useProject = () => {
           return data.map(repo => ({
             id: repo.id,
             full_name: repo.full_name || `${repo.owner.login}/${repo.name}`,
-            html_url:
-              repo.html_url ||
-              (() => {
-                const providerConfig = db.env.git.find(
-                  p => p.name === provider,
-                );
-                if (providerConfig && providerConfig.base_url) {
-                  return `${providerConfig.base_url}/${repo.full_name || `${repo.owner.login}/${repo.name}`}`;
-                }
-                return '';
-              })(),
+            html_url: repo.html_url,
             homepage: repo.homepage || null,
+            avatar_url: repo.avatar_url || null,
             provider: provider,
           }));
         } catch (error) {
