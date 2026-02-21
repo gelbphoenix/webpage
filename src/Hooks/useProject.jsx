@@ -22,7 +22,7 @@ const useProject = () => {
             id: repo.id,
             full_name: repo.full_name || `${repo.owner.login}/${repo.name}`,
             html_url: repo.html_url,
-            homepage: repo.homepage || null,
+            homepage: repo.homepage || repo.website || null,
             avatar_url: repo.avatar_url || null,
             provider: provider,
           }));
