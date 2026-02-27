@@ -1,4 +1,4 @@
-name: Deploy webpage
+name: Build and deploy webpage
 
 on:
   push:
@@ -20,16 +20,13 @@ jobs:
         run: |
           npm run build
 
-      - name: Deploy to Cloudflare
-        id: deploy
-        uses: https://github.com/cloudflare/wrangler-action@v3
+      - name: Deploy webpage
+        uses: https://github.com/easingthemes/ssh-deploy@main
         with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          workingDirectory: .
-          command: deploy --assets ./dist
-
-      - name: Show the Deployment URL
-        run: echo "Deployed to $DEPLOYMENT_URL"
-        env:
-          DEPLOYMENT_URL: ${{ steps.deploy.outputs.deployment-url }}
+          REMOTE_HOST: ${{ secrets.DEPLOY_HOST }}
+          REMOTE_USER: ${{ secrets.DEPLOY_USER }}
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          SOURCE: 'dist/'
+          TARGET: ${{ secrets.TARGET }}
+          ARGS: '-rlgoDzvc -i --delete'
+          EXCLUDE: '/node_modules/'
