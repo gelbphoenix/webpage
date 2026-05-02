@@ -5,6 +5,7 @@ import TechStack from 'Pages/TechStack';
 import Projects from 'Pages/Projects';
 import About from 'Pages/About';
 import Contact from 'Pages/Contact';
+import Ghost from 'Pages/ghost';
 import Footer from 'Components/Footer';
 
 const App = () => {
@@ -19,6 +20,7 @@ const App = () => {
         <TechStack />
         <About />
         {/* <Career /> */}
+        <Ghost />
         <Projects />
         <Contact />
       </main>

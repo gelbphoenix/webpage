@@ -58,6 +58,7 @@ export const db = {
     domain: {
       base: 'gelbphoenix.de',
       link: 'gelbphoenix.link',
+      blog: 'blog.gelbphoenix.de',
     },
     git: [
       {
@@ -120,11 +121,6 @@ export const db = {
       icon: <BsCodeSlash size={20} />,
     },
     {
-      title: 'Projects',
-      link: '#projects',
-      icon: <AiOutlineProject size={20} />,
-    },
-    {
       title: 'About',
       link: '#about',
       icon: <AiOutlineUser size={20} />,
@@ -134,6 +130,16 @@ export const db = {
     //   link: '#career',
     //   icon: <AiOutlineStock size={20} />,
     // },
+    {
+      title: 'Blog',
+      link: `#ghost`,
+      icon: <FaBlog size={20} />,
+    },
+    {
+      title: 'Projects',
+      link: '#projects',
+      icon: <AiOutlineProject size={20} />,
+    },
     {
       title: 'Contact',
       link: '#contact',
