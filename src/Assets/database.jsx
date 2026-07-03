@@ -23,6 +23,7 @@ import {
   SiForgejo,
   SiCodeberg,
   SiGit,
+  SiDocker,
 } from 'react-icons/si';
 import { EuropeanStars } from 'Components/Icons';
 
@@ -201,6 +202,10 @@ export const db = {
     {
       title: 'Git',
       icon: <SiGit size={75} color="#f1502f" />,
+    },
+    {
+      title: 'Docker',
+      icon: <SiDocker size={75} color="#0db7ed" />,
     },
   ],
   toast: [
