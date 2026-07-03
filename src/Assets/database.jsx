@@ -77,6 +77,7 @@ export const db = {
     link: 'https://n8n.gelbphoenix.de/webhook/contact',
     username: 'gelbphoenix',
     mail: 'kontakt@gelbphoenix.de',
+    ignored_topics: ['ignoreportfolio'],
     domain: {
       base: 'gelbphoenix.de',
       link: 'gelbphoenix.link',

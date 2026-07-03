@@ -6,12 +6,12 @@ import { db } from 'Assets/database';
 const ProjectItem = ({ title, link, page, provider, avatar_url }) => {
   const gitUserName = db.env.username;
 
-  const bannedProjects = [
-    `${gitUserName}/${gitUserName}`,
-    `${gitUserName}/.profile`,
-    `${gitUserName}/dotfiles`,
-    `${gitUserName}/_cargo-index`,
-  ];
+  // const bannedProjects = [
+  //   `${gitUserName}/${gitUserName}`,
+  //   `${gitUserName}/.profile`,
+  //   `${gitUserName}/dotfiles`,
+  //   `${gitUserName}/_cargo-index`,
+  // ];
 
   const providerData =
     db.env.git.find(p => p.name === provider) || db.env.git[0];
@@ -26,7 +26,7 @@ const ProjectItem = ({ title, link, page, provider, avatar_url }) => {
     return `${providerData.base_url}/${username}${providerData.profile_path}`;
   };
 
-  if (bannedProjects.includes(title)) return null;
+  // if (bannedProjects.includes(title)) return null;
 
   return (
     <>
