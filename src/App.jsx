@@ -1,7 +1,7 @@
 import Header from 'Components/Header';
 import Home from 'Pages/Home';
 import TechStack from 'Pages/TechStack';
-// import Career from 'Pages/Career';
+import Career from 'Pages/Career';
 import Projects from 'Pages/Projects';
 import About from 'Pages/About';
 import Contact from 'Pages/Contact';
@@ -19,7 +19,7 @@ const App = () => {
         <Home />
         <TechStack />
         <About />
-        {/* <Career /> */}
+        <Career />
         <Ghost />
         <Projects />
         <Contact />

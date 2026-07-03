@@ -10,12 +10,12 @@ const Toast = ({ content }) => {
         <span className="mb-1 text-lg font-bold">{content.title}</span>
         <span className="text-sm font-normal">{content.description}</span>
         {content.link.text && content.link.url ? (
-          <a
-            href={content.link.url}
-            className="hover:underline pt-1 mt-2 border-t-2 border-dashed"
-          >
-            {content.link.text}
-          </a>
+          <>
+            <hr className="my-2 border-t border-dashed border-stone-500 dark:border-stone-400" />
+            <a href={content.link.url} className="hover:underline">
+              {content.link.text}
+            </a>
+          </>
         ) : (
           ''
         )}

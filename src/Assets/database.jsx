@@ -3,7 +3,7 @@ import {
   AiOutlineHome,
   AiOutlineProject,
   AiOutlineMail,
-  // AiOutlineStock,
+  AiOutlineStock,
   AiOutlineUser,
 } from 'react-icons/ai';
 import {
@@ -22,6 +22,7 @@ import {
   SiPixelfed,
   SiForgejo,
   SiCodeberg,
+  SiGit,
 } from 'react-icons/si';
 import { EuropeanStars } from 'Components/Icons';
 
@@ -47,8 +48,29 @@ export const db = {
         text: '',
         value: null,
       },
+      details: 'I`ve been teaching myself to code since January 2023.',
+    },
+    {
+      year: 2025,
+      title: 'Maintainer of Autocaliweb',
+      company: '',
+      duration: {
+        text: 'Since May 2025',
+        value: null,
+      },
       details:
-        'I`ve been teaching myself to code since January 2023. I focus on web development with Javascript, ReactJS and NodeJS.',
+        'Autocaliweb is a free and open-source management platform for eBooks, eComics and PDFs. I`ve started maintaining the project in 2025 as a Fork of Calibre-Web and Calibre-Web Automated. The project is hosted on Codeberg.',
+    },
+    {
+      year: 2025,
+      title: 'Collaborator of Libre Workspace',
+      company: '',
+      duration: {
+        text: 'Since May 2025',
+        value: null,
+      },
+      details:
+        'Libre Workspace is a free and open-source alternative to Microsoft 365 and Google Workspace. I`ve started collaborating on the project in 2025. The project is hosted on Codeberg.',
     },
   ],
   env: {
@@ -100,12 +122,12 @@ export const db = {
     },
     {
       title: 'git',
-      longTitle: 'Forgejo',
+      longTitle: 'Forgejo/@gelbphoenix',
       icon: <SiForgejo size={20} />,
     },
     {
       title: 'codeberg',
-      longTitle: 'Codeberg',
+      longTitle: 'Codeberg/@gelbphoenix',
       icon: <SiCodeberg size={20} />,
     },
   ],
@@ -125,11 +147,11 @@ export const db = {
       link: '#about',
       icon: <AiOutlineUser size={20} />,
     },
-    // {
-    //   title: 'Career',
-    //   link: '#career',
-    //   icon: <AiOutlineStock size={20} />,
-    // },
+    {
+      title: 'Career',
+      link: '#career',
+      icon: <AiOutlineStock size={20} />,
+    },
     {
       title: 'Blog',
       link: `#ghost`,
@@ -175,13 +197,17 @@ export const db = {
       title: 'Linux',
       icon: <FaLinux size={75} color="#f79f00" />,
     },
+    {
+      title: 'Git',
+      icon: <SiGit size={75} color="#f1502f" />,
+    },
   ],
   toast: [
     {
       icon: <EuropeanStars size={30} />,
       title: 'Europe has to be sovereign!',
       description:
-        "Europe is the only strong bastion for democracy and freedom left. Trump's US wants to destroy a united Europe.",
+        'Faced with rising global pressures, can Europe stand strong on its own? A deep dive into the urgent need for a united and sovereign continent.',
       link: {
         url: 'https://blog.gelbphoenix.de/a-sovereign-europe/',
         text: 'Read here.',
