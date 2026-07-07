@@ -17,8 +17,8 @@ const App = () => {
 
       <main>
         <Home />
-        <TechStack />
         <About />
+        <TechStack />
         <Career />
         <Ghost />
         <Projects />

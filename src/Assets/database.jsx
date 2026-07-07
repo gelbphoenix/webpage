@@ -31,13 +31,20 @@ import { EuropeanStars } from 'Components/Icons';
 export const db = {
   about: [
     {
-      text: 'Phoenix Paulina Schmid is a dedicated and talented student web developer based in Germany with a passion for creating innovative digital solutions. With a strong background in programming languages such as HTML, CSS, and JavaScript, they are constantly expanding their skills and staying up-to-date with the latest trends and technologies in the field. She has a relentless curiosity and problem-solving mindset that drives them to tackle complex challenges and deliver efficient and user-friendly websites.',
+      text: "I am Phoenix Paulina Schmid, also known as 'gelbphoenix', an independent open-source web developer and consultant based in Germany. I specialize in creating custom web applications, self-hosted cloud solutions, and automation scripts that empower individuals and organizations to take control of their digital environments. My work is driven by a passion for open-source technologies, privacy, and the principles of digital sovereignty.",
+      highlight: false,
     },
     {
-      text: 'Driven by her desire to combine functionality with aesthetics, they strive to create visually appealing designs that enhance the user experience. They possess a keen eye for detail and a natural instinct for intuitive navigation, ensuring that their projects not only meet technical requirements but also exceed expectations in terms of design and usability. Their commitment to continuous learning and their ability to adapt to new tools and frameworks make them a valuable asset in the ever-evolving world of web development. With a strong work ethic and a genuine enthusiasm for her craft, they are poised to make a significant impact in the field of web development.',
+      text: "As an active maintainer and core contributor to open-source projects like Autocaliweb and Libre Workspace, I don't just install software – I understand it on a code level. This allows me to develop tailormade web applications, write custom automation scripts, and manage deployments that are perfectly optimized for your specific workflows.",
+      highlight: true,
     },
     {
-      text: 'In addition to her technical expertise, Paulina is also a strong advocate for diversity and inclusion in the tech industry. They actively contribute to creating a welcoming and inclusive environment for all individuals. She believes that diverse perspectives and experiences are essential for driving innovation and creating truly impactful digital solutions. Through her work, she aims to inspire and empower underrepresented groups in the field of web development, breaking barriers and fostering a more inclusive tech community.',
+      text: 'Driven by a desire to merge seamless functionality with clean aesthetics, I build visually appealing, highly accessible digital environments. I possess a keen eye for detail and a natural instinct for intuitive navigation, ensuring that every project—whether a public website or a self-hosted cloud infrastructure—not only meets strict technical requirements but exceeds expectations in usability. My adaptability and commitment to open ecosystems make me a reliable, long-term partner for anyone looking to transition away from restrictive, proprietary platforms.',
+      highlight: false,
+    },
+    {
+      text: 'Beyond the source code, I am a dedicated advocate for digital ethics, diversity, and inclusion in the tech industry. I firmly believe that diverse perspectives and experiences are essential for driving true innovation and creating impactful digital solutions. Through my work, my technical blog, and my active involvement in decentralized networks like the Fediverse, I aim to empower underrepresented groups, break down technical barriers, and foster a welcoming, self-sovereign tech community.',
+      highlight: false,
     },
   ],
   career: [
@@ -140,14 +147,14 @@ export const db = {
       icon: <AiOutlineHome size={20} />,
     },
     {
+      title: 'About me',
+      link: '#about',
+      icon: <AiOutlineUser size={20} />,
+    },
+    {
       title: 'Tech Stack',
       link: '#techstack',
       icon: <BsCodeSlash size={20} />,
-    },
-    {
-      title: 'About',
-      link: '#about',
-      icon: <AiOutlineUser size={20} />,
     },
     {
       title: 'Career',
@@ -219,5 +226,19 @@ export const db = {
         text: 'Read here.',
       },
     },
+  ],
+  emojis: [
+    { name: ':books:', emoji: '📚' },
+    { name: ':rocket:', emoji: '🚀' },
+    { name: ':sparkles:', emoji: '✨' },
+    { name: ':bug:', emoji: '🐛' },
+    { name: ':hammer:', emoji: '🔨' },
+    { name: ':art:', emoji: '🎨' },
+    { name: ':lock:', emoji: '🔒' },
+    { name: ':gear:', emoji: '⚙️' },
+    { name: ':fire:', emoji: '🔥' },
+    { name: ':star:', emoji: '⭐' },
+    { name: ':trophy:', emoji: '🏆' },
+    { name: ':globe_with_meridians:', emoji: '🌐' },
   ],
 };

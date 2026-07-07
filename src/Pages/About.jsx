@@ -14,7 +14,11 @@ const About = () => {
           About me
         </h1>
         {about.map((item, index) => (
-          <AboutParagraph text={item.text} key={index} />
+          <AboutParagraph
+            text={item.text}
+            highlight={item.highlight}
+            key={index}
+          />
         ))}
       </section>
     </>

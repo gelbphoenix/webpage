@@ -30,7 +30,10 @@ const useProject = () => {
             })
             .map(repo => ({
               id: repo.id,
-              full_name: repo.full_name || `${repo.owner.login}/${repo.name}`,
+              full_name: repo.name,
+              raw_name: repo.full_name,
+              description: repo.description,
+              language: repo.language,
               html_url: repo.html_url,
               homepage: repo.homepage || repo.website || null,
               avatar_url: repo.avatar_url || null,

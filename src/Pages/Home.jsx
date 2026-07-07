@@ -26,11 +26,13 @@ const Home = () => {
               I&apos;m a
               <TypeAnimation
                 sequence={[
-                  'Developer.',
+                  'Freelance Developer.',
                   1500,
-                  'Lerner.',
+                  'Open Source Maintainer.',
                   1500,
-                  'Creator.',
+                  'Self-Hosting Guide.',
+                  1500,
+                  'FOSS Consultant.',
                   1500,
                 ]}
                 speed={50}

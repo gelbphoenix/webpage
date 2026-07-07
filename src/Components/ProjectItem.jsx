@@ -2,16 +2,19 @@ import { Button } from 'flowbite-react';
 import { AiOutlineInfoCircle } from 'react-icons/ai';
 import { BiSolidShow } from 'react-icons/bi';
 import { db } from 'Assets/database';
+import parseEmoji from 'Components/parseEmoji';
 
-const ProjectItem = ({ title, link, page, provider, avatar_url }) => {
+const ProjectItem = ({
+  title,
+  rawTitle,
+  language,
+  description,
+  link,
+  page,
+  provider,
+  avatar_url,
+}) => {
   const gitUserName = db.env.username;
-
-  // const bannedProjects = [
-  //   `${gitUserName}/${gitUserName}`,
-  //   `${gitUserName}/.profile`,
-  //   `${gitUserName}/dotfiles`,
-  //   `${gitUserName}/_cargo-index`,
-  // ];
 
   const providerData =
     db.env.git.find(p => p.name === provider) || db.env.git[0];
@@ -20,13 +23,11 @@ const ProjectItem = ({ title, link, page, provider, avatar_url }) => {
     return `${providerData.base_url}/${repo}${providerData.image_path}`;
   };
 
-  const image = avatar_url ? avatar_url : getImageUrl(title);
-
   const getProfileUrl = username => {
     return `${providerData.base_url}/${username}${providerData.profile_path}`;
   };
 
-  // if (bannedProjects.includes(title)) return null;
+  const image = avatar_url ? avatar_url : getImageUrl(rawTitle);
 
   return (
     <>
@@ -36,18 +37,34 @@ const ProjectItem = ({ title, link, page, provider, avatar_url }) => {
           className="rounded-xl group-hover:opacity-10 ease-out duration-100 aspect-square object-cover object-left bg-gray-400 w-full"
           onError={({ currentTarget }) => {
             currentTarget.onError = null;
-            const repoParts = title.split('/');
+            const repoParts = rawTitle ? rawTitle.split('/') : [];
             const username = repoParts.length > 0 ? repoParts[0] : gitUserName;
             currentTarget.src = getProfileUrl(username);
           }}
         />
         <div className="hidden group-hover:block absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] w-[75%]">
-          <p className="text-xs text-white text-center mt-1">
+          <p className="text-[10px] text-white text-center mt-1">
             {providerData.name}
           </p>
-          <h3 className="mdl:text-1xl text-base font-bold text-white tracking-wider text-center truncate">
-            {title}
+
+          <h3 className="mdl:text-1xl text-base capitalize font-bold text-white tracking-wider text-center truncate">
+            {title.replace(/-/g, ' ')}
           </h3>
+
+          {language && (
+            <p className="text-center mt-1">
+              <span className="inline-block text-xs font-mono bg-black/30 dark:bg-white/20 text-white px-2 py-0.5 rounded-md align-middle">
+                {language}
+              </span>
+            </p>
+          )}
+
+          {description && (
+            <p className="text-xs text-stone-100 text-center line-clamp-2 mt-2 mb-3 px-1 italic">
+              {parseEmoji(description)}
+            </p>
+          )}
+
           <div className="flex gap-1 min-w- mt-2 justify-around">
             <Button
               as="a"
@@ -57,7 +74,7 @@ const ProjectItem = ({ title, link, page, provider, avatar_url }) => {
               className="bg-white dark:bg-gray-700 text-gray-700 dark:text-white font-bold hover:bg-gray-200 dark:hover:bg-gray-600"
             >
               <AiOutlineInfoCircle size={20} />
-              <span id={`${title}_repo`} className="sm:block ml-1 hidden">
+              <span id={`${rawTitle}_repo`} className="sm:block ml-1 hidden">
                 Repo
               </span>
             </Button>

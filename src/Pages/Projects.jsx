@@ -14,10 +14,11 @@ const Projects = () => {
           Projects
         </h1>
         <p className="text-center py-8 text-stone-600 dark:text-stone-300">
-          These are just a few examples of the projects I have worked on. Each
-          project has given me valuable insights into different technologies and
-          problem-solving approaches. I am continuously exploring new ideas and
-          technologies to expand my skillset and deliver innovative solutions.
+          From full-scale web applications to specialized infrastructure
+          scripts: here is a selection of my open-source contributions and
+          standalone developments. These projects don't just showcase my tech
+          stack—they prove the production-ready reliability and code-level
+          expertise I bring to every client project.
         </p>
         <div className=" grid mdl:grid-cols-3 sm:grid-cols-2 gap-12">
           {projects?.map(project => {
@@ -25,6 +26,9 @@ const Projects = () => {
               <ProjectItem
                 key={project.id}
                 title={project.full_name}
+                rawTitle={project.raw_name}
+                language={project.language}
+                description={project.description}
                 link={project.html_url}
                 page={project.homepage}
                 provider={project.provider}
